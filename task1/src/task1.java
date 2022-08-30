@@ -1,24 +1,35 @@
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.abs;
+
 public class task1 {
 
-    /*
-    Вы решили полететь на отдых и уже приехали в аэропорт. Оказалось, что аэропорт -− это не одно здание,
-     а несколько стоящих подряд терминалов, соединенных переходами, по которым вы можете перейти за одну минуту.
-
-Более того, из терминала xx в терминал yy ходит экспресс, длительность поездки на котором пренебрежительно маленькая,
- то есть можно считать, что поездка происходит мгновенно. На экспрессе можно ездить в две стороны.
-
-Вы хотите как можно быстрее добраться из терминала aa в терминал bb. Определите минимальное время, за которое вы можете это сделать.
-
-Формат входных данных
-
-В первой и единственной строке входного файла содержатся четыре неотрицательных различных целых числа a, b, x, y a,b,x,y  -− начальная и конечная точки маршрута,
- а также описание экспресса (0<= a,b,x,y <= >10^9).(0K⩽a,b,x,y⩽10^9).
-
-Формат выходных данных
-
-Выведите единственное число -− минимальное время, чтобы добраться из терминала a в терминал b.
-     */
     public static void main(String[] args) {
-        System.out.println("1231");
+        String s = "10 3 2 8";
+        String[] subStr;
+        String delimiter = " ";
+        subStr = s.split(" ");
+
+        int start = parseInt(subStr[0]);
+        int destination = parseInt(subStr[1]);
+        int trainStart = parseInt(subStr[2]);
+        int trainDestination = parseInt(subStr[3]);
+        int temp;
+
+        if (start > destination) {
+            temp = start;
+            start = destination;
+            destination = temp;
+        }
+
+        if (trainStart > trainDestination) {
+            temp = trainStart;
+            trainStart = trainDestination;
+            trainDestination = temp;
+        }
+
+        int distance = abs(destination - start);
+        int distanceWithTrain = abs(trainStart - start) + abs(destination - trainDestination);
+
+        System.out.println(Math.min(distance, distanceWithTrain));
     }
 }
