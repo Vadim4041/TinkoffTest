@@ -1,28 +1,48 @@
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.*;
+
 public class task2 {
-    /*
-Вы -− участник реалити-шоу «Игра в морепродукт». Идея шоу заключается в том, что участники
 
-должны играть в простые детские игры на выбывание.
-
-Очередной такой игрой стала игра в складывания бумаги. А именно, вам дан лист бумаги высоты HH и ширины WW. Вы можете вращать лист на 90° и складывать лист так, чтобы сгиб был параллелен какой-то из сторон.
-
-Задача игры заключается в том, чтобы при помощи сгибов и поворотов получить лист высоты hh и ширины ww. При этом, чтобы пройти далее вам нужно сделать это за наименьшее число сгибов. В качестве подсказки, вам разрешили написать программу, которая определяет минимальное число сгибов или говорит, что нельзя получить такой лист при помощи данных операций.
-
-Формат входных данных
-
-В первой строке входного файла заданы два целых числа W, HW,H -− изначальные размеры листа. Во второй строке заданы еще два целых числа w, hw,h -− длины сторон, которые вы должны получить (0<= W, H, w, h <=10^9).(0⩽W,H,w,h⩽10^9).
-
-Формат выходных данных
-
-В единственной строке выходного файла выведите одно число: минимальное число сгибов для того, чтобы победить, или -1−1, если победить невозможно.
-
-Замечание
-
-В первом примере можно сначала согнуть лист так, чтобы он из листа 2×7 стал листом 2×4. А затем согнуть так, чтобы он стал 2×2.
-
-Во втором примере можно лист 10×6 согнуть в 10×4, а затем в 8×4 и повернуть.
-     */
     public static void main(String[] args) {
-        System.out.println("1231");
+        String sStart = "6 10";
+        String[] subStrStart;
+        String delimiter = " ";
+        subStrStart = sStart.split(delimiter);
+        String sEnd = "8 4";
+        String[] subStrEnd;
+        subStrEnd = sEnd.split(delimiter);
+
+        int sum = 0;
+
+        double start1 = parseInt(subStrStart[0]);
+        double start2 = parseInt(subStrStart[1]);
+
+        double end1 = parseInt(subStrEnd[0]);
+        double end2 = parseInt(subStrEnd[1]);
+
+        if (max(end2, end1) > max(start1, start2)) {
+            System.out.println(-1);
+            System.exit(0);
+        }
+
+        double minStart = min(start1, start2);
+        double minEnd = min(end1, end2);
+
+
+        while (minStart > minEnd) {
+            minStart /= 2;
+            sum ++;
+        }
+
+        double maxStart = max(start1, start2);
+        double maxEnd = max(end1, end2);
+
+        while (maxStart > maxEnd) {
+            maxStart /= 2;
+            sum ++;
+        }
+
+        System.out.println(sum);
+
     }
 }
