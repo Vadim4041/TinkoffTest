@@ -7,7 +7,7 @@ public class task1 {
         String s = "10 3 2 8";
         String[] subStr;
         String delimiter = " ";
-        subStr = s.split(" ");
+        subStr = s.split(delimiter);
 
         int start = parseInt(subStr[0]);
         int destination = parseInt(subStr[1]);
