@@ -1,24 +1,45 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.min;
 
 public class task3 {
-    /*
-    Тинькофф, как известно, компания растущая. В том числе мы открываем новый офис.
-     Для минимизации очередей было принято решение использовать экспериментальную архитектуру.
-      А именно, здание представляет собой круг, разбитый на nn секторов, причем в ii-м секторе работает ровно a_i людей.
-       Также в каждом секторе есть дверь на улицу. Но для обеспечения безопасности, было принято решение открыть ровно kk дверей.
 
-Для того, чтобы уменьшить количество конфликтов, было принято решение разрешить ходить только по часовой стрелке.
-Тогда каждое утро каждый работник выбирает дверь, от которой ему ближе всего идти к рабочему месту.
-Однако осталось определить какие двери будут открыты. Это как раз-таки и поручили вам.
-При этом вы должны минимизировать суммарное расстояние, которое пройдут работники офиса.
-Формат входных данных
-В первой строке входного файла заданы два целых числа n n и kk (1 <=  n  <=  500, 1 <=  k  <= 10).(1⩽n⩽500,1⩽k⩽10).
-В следующих nn строках задана информация о количестве работников в каждом секторе.
-А именно, в (i+1)-й строке записано целое число a_i -− число работников в ii-м секторе (1 <=  a_i  <=  10^6)(1⩽a_i⩽10^6).
-
-Формат выходных данных
-В единственной строке выведите одно число -− минимальное суммарное количество секторов, которое должны пройти все работники до своих секторов.
-     */
     public static void main(String[] args) {
-        System.out.println("1231");
+        Scanner scanner = new Scanner(System.in);
+        String s = "6 2";
+        String[] subStr;
+        String delimiter = " ";
+        subStr = s.split(delimiter);
+
+        int sectors = parseInt(subStr[0]);
+        int doors = min(parseInt(subStr[1]), sectors);
+
+
+        int[] peopleInSectorArray;
+        peopleInSectorArray = new int[sectors];
+
+        peopleInSectorArray[0] = 2;
+        peopleInSectorArray[1] = 5;
+        peopleInSectorArray[2] = 4;
+        peopleInSectorArray[3] = 2;
+        peopleInSectorArray[4] = 6;
+        peopleInSectorArray[5] = 2; // тест, ручной ввод, для отладки
+
+//        for (int i = 0; i < sectors; i++) {
+//               peopleInSectorArray[i] = scanner.nextInt();
+//        } // ввод с консоли, на бой
+
+        System.out.println(Arrays.toString(peopleInSectorArray));
+
+        int[] peopleTimesSectors;
+        peopleTimesSectors = new int[doors * sectors];
+
+        for (int i = 0; i < doors; i++) {
+            for (int j = 0; j < sectors; j++) {
+//                peopleTimesSectors[]
+            }
+        }
     }
 }
